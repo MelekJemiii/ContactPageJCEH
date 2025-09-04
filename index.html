@@ -22,28 +22,18 @@
 
     * { box-sizing: border-box; }
 
-    html,body {
+    html, body {
       font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
       background: var(--bg);
       color: #0f172a;
       margin: 0;
       min-height: 100vh;
       display: flex;
-      align-items: flex-start; /* ensure top of page is visible on mobile */
+      align-items: flex-start;
       justify-content: center;
-      padding: 20px 16px; /* comfortable padding with more space at top */
-    }
-
-    body {
-      font-family: Inter, system-ui, Segoe UI, Arial, sans-serif;
-      background: var(--bg);
-      color: #0f172a;
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px; /* smaller mobile padding */
+      padding: 16px;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     /* Layout wrapper */
@@ -52,7 +42,7 @@
       max-width: 1100px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr min(360px, 38%); /* responsive sidebar width */
+      grid-template-columns: 1fr min(360px, 38%);
       gap: 28px;
       align-items: start;
       padding: 18px;
@@ -91,17 +81,24 @@
       border: 1px solid #eef3fb;
     }
 
-    .logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .logo img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      display: block; 
+    }
 
     h1.company {
-      font-size: clamp(20px, 4.2vw, 24px); /* scales with screen size */
+      font-size: clamp(20px, 4.2vw, 24px);
       margin: 0;
+      line-height: 1.2;
     }
 
     p.tag {
       margin: 4px 0 0;
       color: var(--muted);
       font-size: 14px;
+      line-height: 1.4;
     }
 
     .eyebrow {
@@ -115,10 +112,14 @@
       font-size: 13px;
     }
 
-    .hero .desc { margin-top: 14px; color: var(--muted); line-height: 1.6; }
+    .hero .desc { 
+      margin-top: 14px; 
+      color: var(--muted); 
+      line-height: 1.6; 
+    }
 
     .feature-list {
-      display: block; /* simple flow for long copy */
+      display: block;
       gap: 12px;
       margin-top: 18px;
     }
@@ -133,6 +134,7 @@
       line-height: 1.55;
       white-space: normal;
       overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     /* Contact card */
@@ -153,13 +155,28 @@
       gap: 10px;
     }
 
-    .meta .item { font-size: 14px; color: var(--muted); min-width: 0; }
-    .meta .label { color: var(--muted); font-size: 12px; }
-    .meta strong { color: #07122a; display: block; margin-top: 6px; word-break: break-word; }
+    .meta .item { 
+      font-size: 14px; 
+      color: var(--muted); 
+      min-width: 0; 
+    }
+    
+    .meta .label { 
+      color: var(--muted); 
+      font-size: 12px; 
+      display: block;
+    }
+    
+    .meta strong { 
+      color: #07122a; 
+      display: block; 
+      margin-top: 6px; 
+      word-break: break-word; 
+    }
 
     .contact-actions {
-      display: flex;              /* always flex */
-      flex-direction: column;     /* stack by default (mobile-first) */
+      display: flex;
+      flex-direction: column;
       gap: 10px;
       margin-top: 14px;
       width: 100%;
@@ -176,39 +193,109 @@
       cursor: pointer;
       text-decoration: none;
       justify-content: center;
-      width: 100%; /* full width on mobile */
+      width: 100%;
       box-sizing: border-box;
+      font-size: 14px;
     }
 
-    .btn.primary { background: linear-gradient(90deg, var(--accent), #2e9bff); color: #fff; }
-    .btn.ghost { background: transparent; border: 1px solid #eef3fb; color: var(--accent); }
-
-    /* On wider screens make buttons sit side-by-side and share space */
-    @media (min-width: 720px) {
-      .contact-actions { flex-direction: row; }
-      .btn { width: auto; flex: 1 1 auto; }
+    .btn.primary { 
+      background: linear-gradient(90deg, var(--accent), #2e9bff); 
+      color: #fff; 
+    }
+    
+    .btn.ghost { 
+      background: transparent; 
+      border: 1px solid #eef3fb; 
+      color: var(--accent); 
     }
 
-    .small { font-size: 13px; color: var(--muted); margin-top: 12px; }
+    .small { 
+      font-size: 13px; 
+      color: var(--muted); 
+      margin-top: 12px; 
+      line-height: 1.4;
+    }
 
-    footer { margin-top: 22px; text-align: center; color: var(--muted); font-size: 13px; }
+    footer { 
+      margin-top: 22px; 
+      text-align: center; 
+      color: var(--muted); 
+      font-size: 13px; 
+    }
 
     /* Responsive adjustments */
     @media (max-width: 980px) {
-      .wrap { grid-template-columns: 1fr; max-width: 100%; padding: 12px; }
-      .hero { order: 2; padding: 18px; }
-      .card { order: 1; }
-      .meta { grid-template-columns: 1fr; }
+      .wrap { 
+        grid-template-columns: 1fr; 
+        max-width: 100%; 
+        padding: 12px; 
+        gap: 20px;
+      }
+      
+      .hero { 
+        order: 2; 
+        padding: 20px; 
+      }
+      
+      .card { 
+        order: 1; 
+        padding: 20px;
+      }
+      
+      .meta { 
+        grid-template-columns: 1fr; 
+        gap: 12px;
+      }
+      
+      .hero .top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
     }
 
     /* Smallest screens */
-    @media (max-width: 420px) {
-      body { padding: 10px; }
-      .wrap { gap: 16px; }
-      .hero { padding: 14px; }
-      .card { padding: 14px; }
-      h1.company { font-size: 18px; }
-      .feature { font-size: 13px; }
+    @media (max-width: 480px) {
+      body { 
+        padding: 12px; 
+        align-items: flex-start;
+      }
+      
+      .wrap { 
+        gap: 16px; 
+        padding: 0;
+      }
+      
+      .hero { 
+        padding: 16px; 
+      }
+      
+      .card { 
+        padding: 16px; 
+      }
+      
+      h1.company { 
+        font-size: 20px; 
+      }
+      
+      .feature { 
+        font-size: 13px; 
+        padding: 10px;
+      }
+      
+      .meta .item {
+        font-size: 13px;
+      }
+      
+      .btn {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+      
+      .eyebrow {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
     }
   </style>
 </head>
@@ -228,20 +315,13 @@
       </div>
 
       <div class="feature-list" aria-hidden="true">
-        <div class="feature">At Jet Cabin Essentials Hub, we are passionate about transforming private
-
-jet cabins into exclusive spaces of sophistication and comfort.
-
-With a deep understanding of the unique expectations of business
-aviation, we deliver tailored solutions for cabin styling and premium
-
-accessories.</div>
+        <div class="feature">At Jet Cabin Essentials Hub, we are passionate about transforming private jet cabins into exclusive spaces of sophistication and comfort. With a deep understanding of the unique expectations of business aviation, we deliver tailored solutions for cabin styling and premium accessories.</div>
       </div>
 
     </section>
 
     <aside class="card" aria-labelledby="contact-heading">
-      <h2 id="contact-heading" style="margin:0 0 8px">Contact</h2>
+      <h2 id="contact-heading" style="margin:0 0 12px; font-size: 20px;">Contact</h2>
       <div class="meta">
         <div class="item"><span class="label">CEO</span><strong>Nabila Safti</strong></div>
         <div class="item"><span class="label">Location</span><strong>Paris, France</strong></div>
