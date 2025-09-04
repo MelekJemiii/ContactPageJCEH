@@ -11,10 +11,10 @@
 
   <style>
     :root {
-      --bg: #ffffff; /* white background */
+      --bg: #ffffff;
       --card: #ffffff;
       --muted: #6b7280;
-      --accent: #0b73ff; /* blue accent */
+      --accent: #0b73ff;
       --glass: rgba(11,115,255,0.06);
       --radius: 12px;
       --shadow: 0 8px 24px rgba(16,24,40,0.06);
@@ -28,12 +28,17 @@
       color: #0f172a;
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 16px;
+      padding: 0;
       width: 100%;
       overflow-x: hidden;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
 
     /* Layout wrapper */
@@ -45,7 +50,6 @@
       grid-template-columns: 1fr min(360px, 38%);
       gap: 28px;
       align-items: start;
-      padding: 18px;
     }
 
     /* Prevent children from forcing horizontal scroll */
@@ -54,7 +58,7 @@
     /* Hero section */
     .hero {
       background: linear-gradient(180deg, #ffffff, #fbfdff);
-      padding: 28px;
+      padding: 32px;
       border-radius: var(--radius);
       position: relative;
       overflow: hidden;
@@ -126,21 +130,20 @@
 
     .feature {
       background: #f8fbff;
-      padding: 12px;
+      padding: 16px;
       border-radius: 10px;
-      font-size: 14px;
+      font-size: 15px;
       color: #0f172a;
       border: 1px solid #eef6ff;
-      line-height: 1.55;
+      line-height: 1.6;
       white-space: normal;
       overflow-wrap: break-word;
-      word-break: break-word;
     }
 
     /* Contact card */
     .card {
       background: var(--card);
-      padding: 18px;
+      padding: 24px;
       border-radius: 12px;
       border: 1px solid #eef3fb;
       box-shadow: var(--shadow);
@@ -152,7 +155,7 @@
     .meta {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 12px;
     }
 
     .meta .item { 
@@ -178,7 +181,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 14px;
+      margin-top: 20px;
       width: 100%;
     }
 
@@ -186,7 +189,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
+      padding: 12px 16px;
       border-radius: 10px;
       font-weight: 600;
       border: none;
@@ -196,6 +199,7 @@
       width: 100%;
       box-sizing: border-box;
       font-size: 14px;
+      transition: all 0.2s ease;
     }
 
     .btn.primary { 
@@ -203,21 +207,32 @@
       color: #fff; 
     }
     
+    .btn.primary:hover {
+      background: linear-gradient(90deg, #0964da, #1d8cf8); 
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(11, 115, 255, 0.25);
+    }
+    
     .btn.ghost { 
       background: transparent; 
       border: 1px solid #eef3fb; 
       color: var(--accent); 
     }
+    
+    .btn.ghost:hover {
+      background: rgba(11, 115, 255, 0.05);
+      border-color: var(--accent);
+    }
 
     .small { 
       font-size: 13px; 
       color: var(--muted); 
-      margin-top: 12px; 
+      margin-top: 16px; 
       line-height: 1.4;
     }
 
     footer { 
-      margin-top: 22px; 
+      margin-top: 24px; 
       text-align: center; 
       color: var(--muted); 
       font-size: 13px; 
@@ -225,16 +240,20 @@
 
     /* Responsive adjustments */
     @media (max-width: 980px) {
+      body {
+        padding: 16px;
+        justify-content: flex-start;
+      }
+      
       .wrap { 
         grid-template-columns: 1fr; 
         max-width: 100%; 
-        padding: 12px; 
         gap: 20px;
       }
       
       .hero { 
         order: 2; 
-        padding: 20px; 
+        padding: 24px; 
       }
       
       .card { 
@@ -258,20 +277,18 @@
     @media (max-width: 480px) {
       body { 
         padding: 12px; 
-        align-items: flex-start;
       }
       
       .wrap { 
         gap: 16px; 
-        padding: 0;
       }
       
       .hero { 
-        padding: 16px; 
+        padding: 20px; 
       }
       
       .card { 
-        padding: 16px; 
+        padding: 18px; 
       }
       
       h1.company { 
@@ -279,8 +296,8 @@
       }
       
       .feature { 
-        font-size: 13px; 
-        padding: 10px;
+        font-size: 14px; 
+        padding: 14px;
       }
       
       .meta .item {
@@ -321,7 +338,7 @@
     </section>
 
     <aside class="card" aria-labelledby="contact-heading">
-      <h2 id="contact-heading" style="margin:0 0 12px; font-size: 20px;">Contact</h2>
+      <h2 id="contact-heading" style="margin:0 0 16px; font-size: 22px;">Contact</h2>
       <div class="meta">
         <div class="item"><span class="label">CEO</span><strong>Nabila Safti</strong></div>
         <div class="item"><span class="label">Location</span><strong>Paris, France</strong></div>
